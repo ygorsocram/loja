@@ -1,13 +1,17 @@
+<?php include ("cabecalho.php"); ?>
+
 <?php
-include("cabecalho.php");
+$nome = $_GET['nome'];
+$preco = $_GET['preco'];
+$conexao = mysqli_connect("localhost", "root", "", "loja");
 
-$nome = $_GET["nome"];
-$preco = $_GET["preco"];
+function insereProduto($conexao, $nome, $preco) {
+    $query = "insert into produtos (nome, preco) values ('{$nome}', '{$preco}')";
+    $resultadoDaInsercao = mysqli_query($conexao, $query);
+    return $resultadoDaInsercao;
+}
 
-$query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
-$conexao = mysqli_connect('localhost', 'root', '', 'loja');
-
-if(mysqli_query($conexao, $query)) {
+if(insereProduto($conexao, $nome, $preco)) {
 ?>
 <p class="alert-success">Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!</p>
 <?php
@@ -16,7 +20,6 @@ if(mysqli_query($conexao, $query)) {
 <p class="alert-danger">O produto <? = $nome; ?> não foi adicionado</p>
 <?php
 }
-
 ?>
 
-<?php include("rodape.php"); ?>
+<?php include ("rodape.php"); ?>
