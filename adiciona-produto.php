@@ -1,7 +1,6 @@
 <?php include("cabecalho.php"); ?>
 <?php include("conecta.php"); ?>
 
-
 <?php
 
 function insereProduto($conexao, $nome, $preco) {
