@@ -1,4 +1,5 @@
 <?php
+
 function listaProdutos($conexao) {
     $produtos = array();
     $resultado = mysqli_query($conexao, "select * from produtos");
@@ -8,11 +9,9 @@ function listaProdutos($conexao) {
     }
 
     return $produtos;
-
 }
 
 function insereProduto($conexao, $nome, $preco) {
-    $query = "insert into produtos (nome, preco) values ('{$nome}', '{$preco}')";
-    $resultadoDaInsercao = mysqli_query($conexao, $query);
-    return $resultadoDaInsercao;
+    $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
+    return mysqli_query($conexao, $query);
 }
