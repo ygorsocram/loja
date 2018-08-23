@@ -20,14 +20,20 @@ $categorias = listaCategorias($conexao);
             <td>Descrição</td>
             <td><textarea class="form-control" name="descricao"></textarea></td>
         </tr>
-        <tr>
-            <td>Categoria</td>
-            <td>
-                <?php foreach($categorias as $categoria) : ?>
-                    <input type="radio" name="categoria_id" value="<?=$categoria['id']?>"><?=$categoria['nome']?></br>
-                <?php endforeach ?>
-            </td>
-        </tr>
+<tr>
+<tr>
+    <td></td>
+    <td><input type="checkbox" name="usado" value="true"> Usado</td>
+</tr>
+    <td>Categoria</td>
+    <td>
+        <select name="categoria_id">
+        <?php foreach($categorias as $categoria) : ?>
+        <option value="<?=$categoria['id']?>"><?=$categoria['nome']?></option>
+        <?php endforeach ?>
+        </select>
+    </td>
+</tr>
         <tr>
             <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
         </tr>
