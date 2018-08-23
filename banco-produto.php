@@ -11,10 +11,10 @@ function listaProdutos($conexao) {
     return $produtos;
 }
 
-function insereProduto($nome, $preco, $descricao, $categoria_id, $usado) {
-    $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) 
+function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
+    $query = "insert into produtos (nome, preco, descricao, categoria_id, usado)
         values ('{$nome}', {$preco}, '{$descricao}', {$categoria_id}, {$usado})";
-    $resultadoDaInsercao = mysqli_query($conexao, $query);
+    return mysqli_query($conexao, $query);
 }
 
 function removeProduto($conexao, $id) {
