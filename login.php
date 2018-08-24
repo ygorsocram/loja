@@ -11,8 +11,5 @@ if($usuario == null) {
     $_SESSION["success"] = "Usuário logado com sucesso.";
     logaUsuario($usuario["email"]);
     header("Location: index.php");
-} else {
-    logaUsuario($usuario["email"]);
-    header("Location: index.php?login=1");
 }
 die();
