@@ -1,5 +1,23 @@
 <?php include("cabecalho.php"); ?>
 
+<?php
+
+            <?php if(usuarioEstaLogado()) {?>
+                <p class="text-success">Você está logado como <?= usuarioLogado() ?>.
+                <a href="logout.php">Deslogar</a></p>
+            <?php } else {?>
+
+function verificaUsuario() {
+  if(!usuarioEstaLogado()) {
+     header("Location: index.php?falhaDeSeguranca=true");
+     die();
+  }
+}
+
+function usuarioLogado() {
+    return $_COOKIE["usuario_logado"];
+}?>
+
 <?php if(isset($_GET["login"]) && $_GET["login"]==true) { ?>
     <p class="alert-success">Logado com sucesso!</p>
 <?php } ?>
@@ -19,6 +37,15 @@ if(isset($_COOKIE["usuario_logado"])) {
 <h1>Bem vindo!</h1>
 
 <h2>Login</h2>
+
+<?php
+if(isset($_GET["falhaDeSeguranca"])) {
+?>
+  <p class="alert-danger">Você não tem acesso a esta funcionalidade!</p>
+<?php
+}
+?>
+
 <form action="login.php" method="post">
     <table class="table">
         <tr>
@@ -38,4 +65,5 @@ if(isset($_COOKIE["usuario_logado"])) {
 <?php
 }
 ?>
+
 <?php include("rodape.php"); ?>

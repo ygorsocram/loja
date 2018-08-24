@@ -1,6 +1,14 @@
 <?php include("cabecalho.php");
       include("conecta.php");
-      include("banco-produto.php"); ?>
+      include("banco-produto.php"); 
+	  
+function verificaUsuario() {
+  if(!usuarioEstaLogado()) {
+     header("Location: index.php?falhaDeSeguranca=true");
+     die();
+  }
+}
+	  ?>
 
 <?php if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') { ?>
     <p class="alert-success">Produto apagado com sucesso.</p>
