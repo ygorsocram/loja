@@ -1,17 +1,11 @@
 <?php include("cabecalho.php");
       include("conecta.php");
       include("banco-categoria.php");
-	  include("logica-usuario.php");
+      include("logica-usuario.php");
 
-function verificaUsuario() {
-  if(!usuarioEstaLogado()) {
-     header("Location: index.php?falhaDeSeguranca=true");
-     die();
-  }
-}
+verificaUsuario();
 
-	  $categorias = listaCategorias($conexao);
-
+$categorias = listaCategorias($conexao);
 ?>
 
 <h1>Formulário de produto</h1>
