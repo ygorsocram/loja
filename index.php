@@ -8,6 +8,14 @@
     <p class="alert-danger">Usuário ou senha inválida!</p>
 <?php } ?>
 
+<?php
+if(isset($_COOKIE["usuario_logado"])) {
+?>
+<p class="text-success">Você está logado como <?= $_COOKIE["usuario_logado"] ?></p>
+<?php
+} else {
+?>
+
 <h1>Bem vindo!</h1>
 
 <h2>Login</h2>
@@ -26,4 +34,8 @@
         </tr>
     </table>
 </form>
+
+<?php
+}
+?>
 <?php include("rodape.php"); ?>
