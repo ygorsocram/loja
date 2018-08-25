@@ -1,13 +1,14 @@
 <?php include("cabecalho.php");
       include("conecta.php");
       include("banco-produto.php");
-      include("logica-usuario.php"); ?>
+      include("logica-usuario.php");?>
+	  
+	  <?php
+error_reporting(E_ALL ^ E_NOTICE);
+include("mostra-alerta.php"); ?>
 
-<?php if(isset($_SESSION["success"])) { ?>
-  <p class="alert-success"><?= $_SESSION["success"] ?></p>
-<?php
-  unset($_SESSION["success"]);
-} ?>
+            <?php  mostraAlerta("success"); ?>
+            <?php mostraAlerta("danger"); ?>
 
 <table class="table table-striped table-bordered">
 
