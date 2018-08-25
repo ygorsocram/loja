@@ -1,14 +1,6 @@
 <?php include("cabecalho.php");
       include("conecta.php");
-      include("banco-produto.php");
-      include("logica-usuario.php");?>
-	  
-	  <?php
-error_reporting(E_ALL ^ E_NOTICE);
-include("mostra-alerta.php"); ?>
-
-            <?php  mostraAlerta("success"); ?>
-            <?php mostraAlerta("danger"); ?>
+      include("banco-produto.php"); ?>
 
 <table class="table table-striped table-bordered">
 

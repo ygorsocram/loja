@@ -1,12 +1,5 @@
 <?php include("cabecalho.php");
-      include("logica-usuario.php");?>
-	  
-	  <?php
-error_reporting(E_ALL ^ E_NOTICE);
-include("mostra-alerta.php"); ?>
-
-            <?php  mostraAlerta("success"); ?>
-            <?php mostraAlerta("danger"); ?>
+      include("logica-usuario.php"); ?>
 
 <h1>Bem vindo!</h1>
 
