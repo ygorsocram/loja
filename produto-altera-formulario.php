@@ -1,7 +1,6 @@
-<?php include("cabecalho.php");
-      include("conecta.php");
-      include("banco-categoria.php");
-      include("banco-produto.php");
+<?php require_once("cabecalho.php");
+      require_once("banco-categoria.php");
+      require_once("banco-produto.php");
 
 $id = $_GET['id'];
 $produto = buscaProduto($conexao, $id);
@@ -17,11 +16,11 @@ $usado = $produto['usado'] ? "checked='checked'" : "";
     <table class="table">
 
         <?php include("produto-formulario-base.php"); ?>
-        
+
         <tr>
             <td><button class="btn btn-primary" type="submit">Alterar</button></td>
         </tr>
     </table>
 </form>
 
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
